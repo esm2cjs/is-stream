@@ -9,7 +9,7 @@ import {
 	isReadableStream,
 	isDuplexStream,
 	isTransformStream,
-} from './index.js';
+} from './esm/index.js';
 
 test('isStream()', t => {
 	t.true(isStream(new Stream.Stream()));
@@ -18,7 +18,7 @@ test('isStream()', t => {
 	t.true(isStream(new Stream.Duplex()));
 	t.true(isStream(new Stream.Transform()));
 	t.true(isStream(new Stream.PassThrough()));
-	t.true(isStream(fs.createReadStream('test.js')));
+	t.true(isStream(fs.createReadStream('test.mjs')));
 	t.true(isStream(fs.createWriteStream(tempy.file())));
 	t.true(isStream(new net.Socket()));
 	t.false(isStream({}));
@@ -36,7 +36,7 @@ test('isWritableStream()', t => {
 	t.true(isWritableStream(new net.Socket()));
 	t.false(isWritableStream(new Stream.Stream()));
 	t.false(isWritableStream(new Stream.Readable()));
-	t.false(isWritableStream(fs.createReadStream('test.js')));
+	t.false(isWritableStream(fs.createReadStream('test.mjs')));
 });
 
 test('isReadableStream()', t => {
@@ -44,7 +44,7 @@ test('isReadableStream()', t => {
 	t.true(isReadableStream(new Stream.Duplex()));
 	t.true(isReadableStream(new Stream.Transform()));
 	t.true(isReadableStream(new Stream.PassThrough()));
-	t.true(isReadableStream(fs.createReadStream('test.js')));
+	t.true(isReadableStream(fs.createReadStream('test.mjs')));
 	t.true(isReadableStream(new net.Socket()));
 	t.false(isReadableStream(new Stream.Stream()));
 	t.false(isReadableStream(new Stream.Writable()));
@@ -58,7 +58,7 @@ test('isDuplexStream()', t => {
 	t.false(isDuplexStream(new Stream.Stream()));
 	t.false(isDuplexStream(new Stream.Readable()));
 	t.false(isDuplexStream(new Stream.Writable()));
-	t.false(isDuplexStream(fs.createReadStream('test.js')));
+	t.false(isDuplexStream(fs.createReadStream('test.mjs')));
 	t.false(isDuplexStream(fs.createWriteStream(tempy.file())));
 });
 
@@ -69,6 +69,6 @@ test('isTransformStream()', t => {
 	t.false(isTransformStream(new Stream.Stream()));
 	t.false(isTransformStream(new Stream.Readable()));
 	t.false(isTransformStream(new Stream.Writable()));
-	t.false(isTransformStream(fs.createReadStream('test.js')));
+	t.false(isTransformStream(fs.createReadStream('test.mjs')));
 	t.false(isTransformStream(fs.createWriteStream(tempy.file())));
 });
