@@ -33,4 +33,4 @@ For more details, please see the original [repository](https://github.com/sindre
 
 To support my efforts in maintaining the ESM/CommonJS hybrid, please sponsor [here](https://github.com/sponsors/AlCalzone).
 
-To support the original author of the module, please sponsor [here](https://github.com/sindresorhus/strip-final-newline).
+To support the original author of the module, please sponsor [here](https://github.com/sindresorhus/is-stream).
